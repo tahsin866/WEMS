@@ -1,0 +1,15 @@
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  background-repeat: no-repeat;
+}
+
+html {
+  box-sizing: border-box;
+
+}
+
+body{
+  font-family: 'SolaimanLipi', sans-serif;
+}
