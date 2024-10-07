@@ -51,38 +51,10 @@ const removeChat = () => {
         justify="space-between"
       >
         <VRow>
-          <VCol
-            cols="12"
-            class="text-center"
-          >
-            <h5 class="mb-0">
+          <VCol cols="12">
+            <h5 class="mb-0 text-white">
               সরাসরি বার্তা
             </h5>
-          </VCol>
-          <VCol
-            cols="12"
-            class="d-flex justify-center"
-          >
-            <VBadge
-              content="3"
-              color="warning"
-              dot
-            >
-              <VBtn
-                size="small"
-                icon
-                @click="toggleNotifications"
-              >
-                <VIcon>ri-notification-line</VIcon>
-              </VBtn>
-            </VBadge>
-            <VBtn
-              size="small"
-              icon
-              @click="toggleChatPane"
-            >
-              <VIcon>ri-chat-new-line</VIcon>
-            </VBtn>
           </VCol>
         </VRow>
       </vrow>

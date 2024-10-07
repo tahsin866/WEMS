@@ -3,7 +3,7 @@ import Timer from './timer.vue'
 </script>
 
 <template>
-  <VRow class="px-5">
+  <VRow>
     <VCol cols="12">
       <VCard class="elevation-3">
         <VRow no-gutters>
