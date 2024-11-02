@@ -131,6 +131,12 @@ export const routes = [
         component: () => import('@/views/pages/NegranMumtahin/negranMumtahinApllyForm.vue'),
       },
   
+      {
+        path: 'negranMumtahinApplyFormOld',
+        component: () => import('@/views/pages/NegranMumtahin/negranMumtahinApplyFormOld.vue'),
+      },
+
+
     ],
   },
   {

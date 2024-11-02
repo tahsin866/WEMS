@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import Attachment from './Attachment.vue'
 
 const numberedSteps = [
   {
@@ -37,52 +38,6 @@ const formData = ref({
 
 const onSubmit = () => {
   console.log(formData.value)
-}
-
-
-
-// Define references and reactive variables
-const fileInput = ref(null)
-const selectedFiles = ref([])
-
-// Method to trigger the file input click
-const triggerFileInput = () => {
-  fileInput.value.click()
-}
-
-// Method to handle file change when a file is selected
-const handleFileChange = event => {
-  const files = event.target.files
-
-  selectedFiles.value = []
-
-  // Loop through the selected files and add to the array
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i]
-
-    const fileData = {
-      name: file.name,
-      size: file.size,
-      type: file.type,
-      preview: URL.createObjectURL(file), // Create preview for image files
-    }
-
-    selectedFiles.value.push(fileData)
-  }
-}
-
-// Method to remove a file by index
-const removeFile = index => {
-  selectedFiles.value.splice(index, 1)
-}
-
-// Placeholder methods for drag and drop events
-const handleDragOver = event => {
-  // Optional logic to handle drag over event
-}
-
-const handleDrop = event => {
-  // Optional logic to handle drop event
 }
 </script>
 
@@ -436,134 +391,10 @@ const handleDrop = event => {
       <!-- 👉 stepper content -->
       <VForm class="mt-5">
         <VRow>
-          <div
-            class="d-flex flex-column justify-center align-center gap-y-2 pa-12 drop-zone rounded"
-            @dragover.prevent="handleDragOver"
-            @drop.prevent="handleDrop"
-          >
-            <!-- Upload Button (for Drag and Drop) -->
-            <button
-              type="button"
-              class="v-btn v-btn--icon v-theme--light text-secondary v-btn--density-default v-btn--variant-tonal rounded"
-              style="width: 40px; height: 40px;"
-              @click="triggerFileInput"
-            >
-              <span class="v-btn__overlay" />
-              <span class="v-btn__underlay" />
-              <span
-                class="v-btn__content"
-                data-no-activator
-              >
-                <i
-                  class="ri-upload-2-line v-icon notranslate v-theme--light"
-                  aria-hidden="true"
-                  style="font-size: 24px; height: 24px; width: 24px;"
-                />
-              </span>
-            </button>
-
-            <!-- Text for Drag and Drop -->
-            <h4 class="text-h4">
-              Drag and drop your image here.
-            </h4>
-
-            <!-- Or -->
-            <span class="text-disabled">or</span>
-
-            <!-- Browse Images Button -->
-            <button
-              type="button"
-              class="v-btn v-theme--light text-primary v-btn--density-default v-btn--size-small v-btn--variant-outlined"
-              @click="triggerFileInput"
-            >
-              <span class="v-btn__overlay" />
-              <span class="v-btn__underlay" />
-              <span
-                class="v-btn__content"
-                data-no-activator
-              >
-                Browse Images
-              </span>
-            </button>
-
-            <!-- Hidden file input -->
-            <input
-              ref="fileInput"
-              type="file"
-              style="display: none"
-              @change="handleFileChange"
-            >
-
-            <!-- Display selected files inside the drop zone -->
-            <div
-              v-if="selectedFiles.length > 0"
-              class="mt-4 w-100"
-            >
-              <h4 class="text-h5">
-                Selected Files:
-              </h4>
-              <ul class="w-100 d-flex flex-column align-items-center">
-                <li
-                  v-for="(file, index) in selectedFiles"
-                  :key="index"
-                  class="d-flex justify-between align-center w-75 mb-2"
-                  style="border: 1px solid #ddd; padding: 10px; border-radius: 8px;"
-                >
-                  <div>
-                    {{ file.name }} ({{ (file.size / 1024).toFixed(2) }} KB)
-
-                    <!-- Image preview for image files -->
-                    <div
-                      v-if="file.type.startsWith('image/')"
-                      class="mt-2"
-                    >
-                      <img
-                        :src="file.preview"
-                        alt="Image Preview"
-                        style="max-width: 100px; max-height: 100px; border-radius: 4px;"
-                      >
-                    </div>
-                  </div>
-
-                  <!-- Remove button -->
-                  <button
-                    type="button"
-                    class="v-btn v-theme--light text-error v-btn--density-default v-btn--size-small v-btn--variant-outlined ml-2"
-                    @click="removeFile(index)"
-                  >
-                    Remove
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <Attachment />
         </VRow>
       </vform>
     </vcardtext>
   </VCard>
 </template>
 
-<style scoped>
-/* Add custom styles here if needed */
-.drop-zone {
-  border: 2px dashed #ccc;
-  padding: 20px;
-  text-align: center;
-}
-
-.drop-zone {
-  border: 2px dashed #ccc;
-  padding: 20px;
-  width: 100%;
-  text-align: center;
-  cursor: pointer;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.w-75 {
-  width: 75%;
-}
-</style>

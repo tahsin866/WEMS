@@ -14,36 +14,35 @@ const desserts = [
 <template>
   <div class="mb-5">
     <VCard>
-      <VCardText class="d-flex">
-        <!-- 👉 Avatar -->
-
-        <!-- 👉 Upload Photo -->
-        <form class="d-flex flex-column gap-5">
-          <div class="d-flex justify-content-end">
-            <!-- Adjusted alignment here -->
-            <VBtn 
-              size="small"
-              variant="tonal"
-              class="mx-5"
-              color="success"
-            >
-              একসাথে ডাউনলোড করুন
-              <VIcon
-                end
-                icon="ri-download-cloud-line"
-              />
-            </VBtn>
-          </div>
-        </form>
-      </VCardText>
-      <VDivider />
+      <VCardTitle
+        style="background-color: #243b55;"
+        class="mb-10"
+      >
+        <div class="d-flex justify-content-end">
+          <VBtn 
+            size="small"
+          
+            class="mx-5"
+            color="success"
+          >
+            একসাথে ডাউনলোড করুন
+            <VIcon
+              end
+              icon="ri-download-cloud-line"
+            />
+          </VBtn>
+        </div>
+      </VCardTitle>
+    
+  
+  
+    
       <div class="mb-5 mx-5">
         <VRow>
           <VCol
             cols="12"
             md="3"
           >
-            <VCol cols="3" />
             <VSelect
               :items="items"
               label="মারহালা তালিকা"
@@ -52,11 +51,11 @@ const desserts = [
               density="compact"
             />
           </VCol>
+        
           <VCol
             cols="12"
             md="3"
           >
-            <VCol cols="3" />
             <VTextField
               v-model="search"
               label="শিক্ষার্থী/রেজি:/এনআইড/বি আর এন"
@@ -69,12 +68,11 @@ const desserts = [
               density="compact"
             />
           </VCol>
-      
+        
           <VCol
             cols="12"
             md="3"
           >
-            <VCol cols="3" />
             <VSelect
               :items="items"
               label="আবেদনের ধরন"
@@ -83,12 +81,12 @@ const desserts = [
               density="compact"
             />
           </VCol>
+        
           <VCol
             cols="12"
             md="3"
           >
-            <VCol cols="3" />
-            <VBtn 
+            <VBtn
               variant="tonal"
               size="small"
             >
@@ -111,35 +109,39 @@ const desserts = [
 
 
 
+
   <VCard>
     <VRow>
       <VCol cols="12">
         <VCard>
-          <VRow>
-            <VCol
-              class="mx-8 mb-5"
-              cols="12"
-              md="2"
-            >
-              <VCol cols="2" />
-              <h4 class="text-warning">
-                নিবন্ধন পত্র
-              </h4>
-            </VCol>
-            <VCol
-              cols="12"
-              md="2"
-            >
-              <VCol cols="2" />
-            </VCol>
-            <VCol
-              cols="12"
-              md="2"
-            >
-              <VCol cols="3" />
-              <h4>৪৮তম কেন্দ্রীয় পরীক্ষা: মুতাওয়াসসিতা</h4>
-            </VCol>
-          </VRow>
+          <VCardTitle style="background-color: #243b55;">
+            <!-- Header Section -->
+            <VRow>
+              <VCol
+         
+                cols="12"
+                md="2"
+              >
+                <h4 class="text-warning">
+                  নিবন্ধন পত্র
+                </h4>
+              </VCol>
+              <VCol
+                cols="12"
+                md="2"
+              >
+              <!-- Optional empty space if needed -->
+              </VCol>
+              <VCol
+                cols="12"
+                md="2"
+              >
+                <h4 class="text-white">
+                  ৪৮তম কেন্দ্রীয় পরীক্ষা: মুতাওয়াসসিতা
+                </h4>
+              </VCol>
+            </VRow>
+          </VCardTitle>
 
           <VDivider />
 

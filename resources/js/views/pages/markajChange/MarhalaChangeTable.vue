@@ -112,11 +112,13 @@ const options = [
           cols="12"
         >
           <VTextField
+     
             v-model.number="input2"
             density="compact"
             type="number"
             placeholder="ছাত্র সংখ্যা লিখুন"
             label="ক্বিরআত"
+            min="0"
           />
         </VCol>
         <VDivider />
@@ -125,6 +127,7 @@ const options = [
           cols="12"
         >
           <VTextField
+           
             density="compact"
             label="মোট ছাত্র সংখ্যা"
             placeholder="মোট ছাত্র সংখ্যা"
