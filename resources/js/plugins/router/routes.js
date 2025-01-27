@@ -139,6 +139,7 @@ export const routes = [
 
     ],
   },
+  
   {
     path: '/',
     component: () => import('@/layouts/blank.vue'),

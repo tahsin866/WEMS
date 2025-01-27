@@ -41,5 +41,5 @@ import ShortAnalytic from '@/views/dashboard/shortAnalytic.vue'
     >
       <Chat />
     </VCol>
-  </vrow>
+  </VRow>
 </template>
